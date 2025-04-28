@@ -1,10 +1,13 @@
 # Jframe1
 
+Code:
+
 flowChart: 
 
-1. Designing the flowchart Conditionally
+Challenges:
+ 1. Designing the flowchart Conditionally
 
-2. Handling user input
+ 2. Handling user input
 
  Video
 
