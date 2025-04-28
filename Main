@@ -1,0 +1,54 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Salary Calculator");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // Create labels and text fields
+        JLabel wageLabel = new JLabel("Hourly Wage:");
+        wageLabel.setBounds(10, 10, 100, 25);
+        frame.add(wageLabel);
+
+        JTextField wageField = new JTextField();
+        wageField.setBounds(120, 10, 150, 25);
+        frame.add(wageField);
+
+        JLabel hoursLabel = new JLabel("Hours/Week:");
+        hoursLabel.setBounds(10, 40, 100, 25);
+        frame.add(hoursLabel);
+
+        JTextField hoursField = new JTextField();
+        hoursField.setBounds(120, 40, 150, 25);
+        frame.add(hoursField);
+
+        JButton calculateButton = new JButton("Calculate");
+        calculateButton.setBounds(90, 80, 120, 30);
+        frame.add(calculateButton);
+
+        JLabel resultLabel = new JLabel("Yearly Salary: ");
+        resultLabel.setBounds(10, 120, 250, 25);
+        frame.add(resultLabel);
+
+        // Add action listener to button
+        calculateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double wage = Double.parseDouble(wageField.getText());
+                    double hours = Double.parseDouble(hoursField.getText());
+                    double yearlySalary = wage * hours * 52;
+                    resultLabel.setText(String.format("Yearly Salary: $%.2f", yearlySalary));
+                } catch (NumberFormatException ex) {
+                    resultLabel.setText("Please enter valid numbers!");
+                }
+            }
+        });
+
+        // Make frame visible
+        frame.setVisible(true);
+    }
+}
